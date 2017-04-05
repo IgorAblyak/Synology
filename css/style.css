@@ -90,7 +90,8 @@ a {
 }
 
 .menu-block {
-  display: none;
+  position: fixed;
+  left: -120px;
 }
 
 .header-text {
@@ -1122,14 +1123,14 @@ a {
   .menu-block {
     position: fixed;
     top: 55px;
-    left: -85px;
+    left: -120px;
     z-index: 90;
-    display: none;
     margin: 0;
     padding: 0;
     width: 25%;
     list-style: none;
     background: linear-gradient(to right, rgba(0, 224, 208, 0.5), rgba(74, 163, 204, 0.5));
+    transition: left 1s;
   }
 
   .menu-block > li {
@@ -1159,7 +1160,7 @@ a {
     height: 40px;
     border: 2px solid linear-gradient(to right, rgba(0, 224, 208, 0.8), rgba(74, 163, 204, 0.8));
     background: linear-gradient(to right, rgba(0, 224, 208, 0.5), rgba(74, 163, 204, 0.5));
-    transition: all 1s;
+    transition: transform 1s ease-out;
   }
 
   .mobile-menu:hover {
@@ -1177,12 +1178,12 @@ a {
     width: 30px;
     height: 2px;
     background: linear-gradient(to right, rgba(0, 224, 208, 1), rgba(74, 163, 204, 1));
+    transition: opacity 1s;
   }
 
-  .mobile-menu::before {
+  .line::before {
     position: absolute;
-    top: 10px;
-    left: 10%;
+    top: -10px;
     content: "";
     display: block;
     width: 30px;
@@ -1190,20 +1191,58 @@ a {
     background: linear-gradient(to right, rgba(0, 224, 208, 1), rgba(74, 163, 204, 1));
   }
 
-  .mobile-menu::after {
+  .line::after {
     position: absolute;
-    bottom: 10px;
-    left: 10%;
+    bottom: -10px;
     content: "";
     display: block;
     width: 30px;
     height: 2px;
     background: linear-gradient(to right, rgba(0, 224, 208, 1), rgba(74, 163, 204, 1));
+  }
+
+  .line-x1 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    display: block;
+    margin-top: -1px;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(0, 224, 208, 1), rgba(74, 163, 204, 1));
+    opacity: 0;
+    transform: rotateZ(45deg);
+    transition: opacity 1s ease-in-out;
+  }
+
+  .line-x2 {
+    position: absolute;
+    bottom: 50%;
+    left: 10%;
+    display: block;
+    margin-top: -1px;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(0, 224, 208, 1), rgba(74, 163, 204, 1));
+    opacity: 0;
+    transform: rotateZ(-45deg);
+    transition: opacity 1s ease-in-out;
   }
 
   .show {
-    display: block;
     left: 0;
+  }
+
+  .show-x {
+    opacity: 1;
+  }
+
+  .line-transform {
+    opacity: 0;
+  }
+
+  .mobile-menu-transform {
+    transform: rotateZ(360deg);
   }
 
   .main-header {

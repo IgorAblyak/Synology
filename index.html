@@ -28,6 +28,8 @@
         </nav>
         <div class="mobile-menu">
           <span class="line"></span>
+          <span class="line-x1"></span>
+          <span class="line-x2"></span>
         </div>
           <ul class="menu-block">
             <li><a href="#">Home</a></li>
@@ -286,10 +288,18 @@
   <script>
     var mobileMenu = document.querySelector (".mobile-menu");
     var mainMenu = document.querySelector (".menu-block");
+    var line = document.querySelector (".line");
+    var lineX1 = document.querySelector (".line-x1");
+    var lineX2 = document.querySelector (".line-x2");
 
     mobileMenu.addEventListener ("click", function(event){
       event.preventDefault();
       mainMenu.classList.toggle ("show");
+      line.classList.toggle ("line-transform");
+      mobileMenu.classList.toggle ("mobile-menu-transform");
+      lineX1.classList.toggle ("show-x");
+      lineX2.classList.toggle ("show-x");
+
     });
   </script>
   <script type="text/javascript" src="js/retina.js"></script>
